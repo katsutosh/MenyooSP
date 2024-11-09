@@ -295,10 +295,10 @@ namespace sub::TeleportLocations_catind
 				SET_MINIMAP_IN_PROLOGUE(false);
 			}
 			
-			static bool _bCayoPericoMiniMapEnabled = false;
+			static bool _bCayoPericoMapEnabled = false;
 			if (loc.name.find("Cayo") != std::string::npos)
 			{
-				_bCayoPericoMiniMapEnabled = true;
+				_bCayoPericoMapEnabled = true;
 				LOAD_GLOBAL_WATER_FILE(1);
 				SET_ALLOW_STREAM_HEIST_ISLAND_NODES(1);
 				SET_ISLAND_ENABLED("HeistIsland", true);
@@ -306,9 +306,9 @@ namespace sub::TeleportLocations_catind
 				SET_SCENARIO_GROUP_ENABLED("Heist_Island_Peds", true);
 				SET_SCENARIO_GROUP_ENABLED("Heist_Island_Peds_2", true);
 			}
-			else if (_bCayoPericoMiniMapEnabled)
+			else if (_bCayoPericoMapEnabled)
 			{
-				_bCayoPericoMiniMapEnabled = false;
+				_bCayoPericoMapEnabled = false;
 				LOAD_GLOBAL_WATER_FILE(0);
 				SET_ALLOW_STREAM_HEIST_ISLAND_NODES(0);
 				SET_ISLAND_ENABLED("HeistIsland", false);
