@@ -294,6 +294,28 @@ namespace sub::TeleportLocations_catind
 				_bNorthYanktonMiniMapEnabled = false;
 				SET_MINIMAP_IN_PROLOGUE(false);
 			}
+			
+			static bool _bCayoPericoMiniMapEnabled = false;
+			if (loc.name.find("Cayo") != std::string::npos)
+			{
+				_bCayoPericoMiniMapEnabled = true;
+				LOAD_GLOBAL_WATER_FILE(1);
+				SET_ALLOW_STREAM_HEIST_ISLAND_NODES(1);
+				SET_ISLAND_ENABLED("HeistIsland", true);
+				SET_USE_ISLAND_MAP(true);
+				SET_SCENARIO_GROUP_ENABLED("Heist_Island_Peds", true);
+				SET_SCENARIO_GROUP_ENABLED("Heist_Island_Peds_2", true);
+			}
+			else if (_bCayoPericoMiniMapEnabled)
+			{
+				_bCayoPericoMiniMapEnabled = false;
+				LOAD_GLOBAL_WATER_FILE(0);
+				SET_ALLOW_STREAM_HEIST_ISLAND_NODES(0);
+				SET_ISLAND_ENABLED("HeistIsland", false);
+				SET_USE_ISLAND_MAP(false);
+				SET_SCENARIO_GROUP_ENABLED("Heist_Island_Peds", false);
+				SET_SCENARIO_GROUP_ENABLED("Heist_Island_Peds_2", false);
+			}
 		}
 	}
 
