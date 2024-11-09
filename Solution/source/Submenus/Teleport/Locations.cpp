@@ -142,9 +142,6 @@ namespace sub::TeleportLocations_catind
 			{ "prologuerdb"_sv },
 			{ "prologuerd_lod"_sv }
 		};
-		const std::vector<std::string_view> vCayoPerico
-		{
-		};
 		const std::vector<std::string_view> vAllCustomisableApartments1
 		{
 			{ "apa_v_mp_h_01_a"_sv },
@@ -549,12 +546,12 @@ namespace sub::TeleportLocations_catind
 			TeleLocation("Cargo Ship (Normal)", -163.749f, -2377.94f, 9.3192f,{ "cargoship"_sv },{ "sunkcargoship"_sv, "SUNK_SHIP_FIRE"_sv }),
 			TeleLocation("Cargo Ship (Sunken)", -162.8918f, -2365.769f, 0.0f,{ "sunkcargoship"_sv },{ "cargoship"_sv, "SUNK_SHIP_FIRE"_sv }),
 			TeleLocation("Cargo Ship (Sunken & On Fire)", -162.8918f, -2365.769f, 0.0f,{ "sunkcargoship"_sv, "SUNK_SHIP_FIRE"_sv },{ "cargoship"_sv }),
-			TeleLocation("North Yankton", 3217.697021f, -4834.826f, 111.8148f, IplNames::vNorthYankton,IplNames::vCayoPerico), // Angled roads and vehicle generators or nah? --- Make sure that's Cayo Perico is unloaded, because it's on the same position
+			TeleLocation("North Yankton", 3217.697021f, -4834.826f, 111.8148f, IplNames::vNorthYankton, {}), // Angled roads and vehicle generators or nah?
 			TeleLocation("Red Carpet (Movie Theatre)", 300.5927f, 199.7589f, 104.3776f,{ "redCarpet"_sv },{}, false, true),
 			TeleLocation("Trench (Plane Crash Location)", 2814.7000f, 4758.5000f, 50.000f,{ "Plane_crash_trench"_sv },{}),
 			TeleLocation("Tunnel Entrance (Maintenance)", 23.7318f, -647.2123, 37.9549f,{},{ "DT1_03_Gr_Closed"_sv }),
 			TeleLocation("Wrecked Stilthouse (Vinewood)", -1020.5000f, 663.4099f, 154.7500f,{ "DES_StiltHouse_imapend"_sv },{ "DES_stilthouse_rebuild"_sv, "DES_StiltHouse_imapstart"_sv }),
-			TeleLocation("Cayo Perico", 4989.3232421875f, -5172.10546875f, 2.5054931640625f, IplNames::vCayoPerico,IplNames::vNorthYankton, true), //Make sure that's North Yankton is unloaded, because it's on the same position
+			TeleLocation("Cayo Perico", 4989.3232421875f, -5172.10546875f, 2.5054931640625f, {},IplNames::vNorthYankton, true), //Make sure that's North Yankton is unloaded, because it's in the same area
 		};
 #pragma endregion
 
