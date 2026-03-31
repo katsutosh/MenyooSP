@@ -333,6 +333,7 @@ bool g_spawnVehiclePersistent = false;
 bool g_spawnVehicleDeleteOld = false;
 bool g_spawnVehicleNeonToggle = false;
 bool g_LSCCustoms = true;
+bool g_vehiclePVOpsName = true;
 
 
 INT16 g_spawnVehiclePrimaryColor = -3;

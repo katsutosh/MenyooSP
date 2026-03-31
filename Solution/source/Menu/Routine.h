@@ -118,6 +118,7 @@ extern bool g_spawnVehiclePersistent;
 extern bool g_spawnVehicleDeleteOld;
 extern bool g_spawnVehicleNeonToggle;
 extern bool g_LSCCustoms;
+extern bool g_vehiclePVOpsName;
 
 
 extern INT16 g_spawnVehiclePrimaryColor;
