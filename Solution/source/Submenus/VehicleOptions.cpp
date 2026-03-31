@@ -576,6 +576,7 @@ namespace sub
 		AddOption("Teleport Into Seat", PVOps_TeleportIntoIt);
 		AddOption("Teleport to Vehicle", PVOpsSub_TeleportToIt);
 		AddOption("Teleport Vehicle to Self", PVOpsSub_TeleportItToYou);
+		AddToggle("Show Vehicle Name", g_vehiclePVOpsName);
 
 		if (PVOpsSub_Unsave) {
 			pv.MissionEntity_set(false);

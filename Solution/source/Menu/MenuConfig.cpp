@@ -307,7 +307,7 @@ void MenuConfig::ConfigRead()
 	_globalSpawnVehicle_PrimCol = ini.GetLongValue(section_haxValues.c_str(), "vehicle_spawner_primary_colour", _globalSpawnVehicle_PrimCol);
 	_globalSpawnVehicle_SecCol = ini.GetLongValue(section_haxValues.c_str(), "vehicle_spawner_secondary_colour", _globalSpawnVehicle_SecCol);
 	_globalLSC_Customs = ini.GetBoolValue(section_haxValues.c_str(), "vehicle_menyoo_customs_lsc", _globalLSC_Customs);
-	g_unlockMaxIDs = ini.GetBoolValue(section_haxValues.c_str(), "unlock_max_head_ids", g_unlockMaxIDs);
+	g_vehiclePVOpsName = ini.GetBoolValue(section_haxValues.c_str(), "vehicle_PV_Options_Name", g_vehiclePVOpsName);
 
 	sub::Clock_catind::loop_clock = ini.GetDoubleValue(section_haxValues.c_str(), "clock", sub::Clock_catind::loop_clock);
 	sub::Clock_catind::_analogueClockPos.x = (float)ini.GetDoubleValue(section_haxValues.c_str(), "clock_screen_pos_x", sub::Clock_catind::_analogueClockPos.x);
@@ -318,6 +318,7 @@ void MenuConfig::ConfigRead()
 	sub::Speedo_catind::_speedoPosition.x = (float)ini.GetDoubleValue(section_haxValues.c_str(), "speedo_screen_pos_x", sub::Speedo_catind::_speedoPosition.x);
 	sub::Speedo_catind::_speedoPosition.y = (float)ini.GetDoubleValue(section_haxValues.c_str(), "speedo_screen_pos_y", sub::Speedo_catind::_speedoPosition.y);
 	sub::Speedo_catind::_currentSpeedoBg.fileName = ini.GetValue(section_haxValues.c_str(), "speedo_bg_name", sub::Speedo_catind::_currentSpeedoBg.fileName.c_str());
+	g_unlockMaxIDs = ini.GetBoolValue(section_haxValues.c_str(), "unlock_max_head_ids", g_unlockMaxIDs);
 	sub::Speedo_catind::SetCurrentBgIdFromBgNameForConfig();
 
     // Read camera configuration
@@ -565,6 +566,7 @@ void MenuConfig::ConfigSave()
 	ini.SetLongValue(section_haxValues.c_str(), "vehicle_spawner_primary_colour", _globalSpawnVehicle_PrimCol);
 	ini.SetLongValue(section_haxValues.c_str(), "vehicle_spawner_secondary_colour", _globalSpawnVehicle_SecCol);
 	ini.SetBoolValue(section_haxValues.c_str(), "vehicle_menyoo_customs_lsc", _globalLSC_Customs);
+	ini.SetLongValue(section_haxValues.c_str(), "vehicle_PV_Options_Name", g_vehiclePVOpsName);
 
 	ini.SetDoubleValue(section_haxValues.c_str(), "clock", sub::Clock_catind::loop_clock);
 	ini.SetDoubleValue(section_haxValues.c_str(), "clock_screen_pos_x", sub::Clock_catind::_analogueClockPos.x);
