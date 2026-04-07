@@ -347,7 +347,6 @@ public:
 
 	GTAentity CreatePedOnSeat(VehicleSeat seat, GTAmodel::Model model);
 	GTAentity CreateRandomPedOnSeat(VehicleSeat seat);
-
 };
 
 
@@ -358,6 +357,10 @@ void add_emblem_to_vehicle(GTAvehicle vehicle, GTAentity playerPed);
 
 // Vehicle - clone
 GTAvehicle clone_vehicle(GTAvehicle vehicle, GTAentity pedForEmblem = GTAentity());
+
+
+
+
 
 
 
