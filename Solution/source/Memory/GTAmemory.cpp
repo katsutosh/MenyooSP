@@ -1296,7 +1296,7 @@ void GTAmemory::Init()
 	_vehiclePoolAddress = reinterpret_cast<UINT64*>(*reinterpret_cast<int*>(address + 3) + address + 7);
 
 	if (!g_isEnhanced) {
-		if (GTAmemory::GetGameVersion() > eGameVersion::VER_1_0_3751_0) {
+		if (GTAmemory::GetGameVersion() >= eGameVersion::VER_1_0_3788_0)
 			address = FindPattern("\x4C\x8B\x05\x00\x00\x00\x00\x41\x3B\x50\x00\x7D\x00\x49\x8B\x40", "xxx????xxx?x?xxx");
 		}
 		else {
