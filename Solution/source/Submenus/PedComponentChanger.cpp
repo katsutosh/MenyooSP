@@ -180,6 +180,12 @@ namespace sub
 			thisPed.RequestControlOnce();
 			SET_PED_RANDOM_COMPONENT_VARIATION(thisPed.GetHandle(), 0);
 			return;
+		}		
+		
+		if (setDefault) {
+			thisPed.RequestControlOnce();
+			SET_PED_DEFAULT_COMPONENT_VARIATION(thisPed.GetHandle());
+			return;
 		}
 
 		if (ComponentChanger_online_police_m) {
