@@ -213,16 +213,17 @@ namespace sub
 		{
 			AddTitle("Stat Manager");
 
-			/*for (auto& charName : charNames)
+			for (auto& charName : charNames)
 			{
 				bool bGoToCharacterPressed = false;
-				AddOption(charName.second, bGoToCharacterPressed, nullFunc, SUB::SPSTATMANAGER_INCHAR); if (bGoToCharacterPressed)
-				{
+				AddOption(charName.second, bGoToCharacterPressed, nullFunc, nullFunc); if (bGoToCharacterPressed) // When working again. replace 2nd nullFunc with SUB::SPSTATMANAGER_INCHAR
+				{					
+					Game::Print::PrintBottomCentre("~r~Note:~s~ Player Stats temporarily disabled while not working. Check future updates.");
 					selectedCharName = &charName;
 				}
 			}
-
-			AddBreak("---Achievements---");*/
+			
+			AddBreak("---Achievements---");
 			bool unlockAllAchievements = false;
 			AddOption("Unlock All Achievements", unlockAllAchievements); 
 			if (unlockAllAchievements)
