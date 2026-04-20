@@ -42,22 +42,22 @@ namespace sub
 				{ "DEATHS", "Death Count", StatDataType_t::INT, 0, static_cast<float>(INT_MAX) }
 			} },
 			{ "Properties",{
-				{ "PROP_BOUGHT_TRAF", "Arms Trafficking", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_CSCR", "Car Scrap Yard", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_WEED", "Weed Shop", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_TAXI", "Taxi Lot", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_CMSH", "Car Mod Shop", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_SOCO", "Sonar Collections", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_TOWI", "Towing Impound", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_GOLF", "Golf Club", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_CINV", "Vinewood Cinema", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_CIND", "Downtown Cinema", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_CINM", "Morningwood Cinema", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_BARTE", "Tequilala Bar", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_BARPI", "Pitchers Bar", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_BARHE", "Hen House Bar", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_BARHO", "Hookies Bar", StatDataType_t::BOOL, 0, 0 },
-				{ "PROP_BOUGHT_STRIP", "Strip Club", StatDataType_t::BOOL, 0, 0 }
+				{ "PROP_BOUGHT_TRAF", "Arms Trafficking", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_CSCR", "Car Scrap Yard", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_WEED", "Weed Shop", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_TAXI", "Taxi Lot", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_CMSH", "Car Mod Shop", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_SOCO", "Sonar Collections", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_TOWI", "Towing Impound", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_GOLF", "Golf Club", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_CINV", "Vinewood Cinema", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_CIND", "Downtown Cinema", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_CINM", "Morningwood Cinema", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_BARTE", "Tequilala Bar", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_BARPI", "Pitchers Bar", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_BARHE", "Hen House Bar", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_BARHO", "Hookies Bar", StatDataType_t::BOOL, 0, 1 },
+				{ "PROP_BOUGHT_STRIP", "Strip Club", StatDataType_t::BOOL, 0, 1 }
 			} }
 			} };
 
@@ -94,21 +94,29 @@ namespace sub
 
 		void StatSetInt(const std::string& name, int value)
 		{
+			addlog(ige::LogType::LOG_TRACE, "Setting Stat " + name + " to " + std::to_string(value));
+			TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("stats_controller");
 			STAT_SET_INT(GET_HASH_KEY(name), value, 1);
 		}
 
 		void StatSetBool(const std::string& name, bool value)
 		{
+			addlog(ige::LogType::LOG_TRACE, "Setting Stat " + name + " to " + std::string(value ? "true" : "false"));
+			TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("stats_controller");
 			STAT_SET_BOOL(GET_HASH_KEY(name), value, 1);
 		}
 
 		void StatSetFloat(const std::string& name, float value)
 		{
+			addlog(ige::LogType::LOG_TRACE, "Setting Stat " + name + " to " + std::to_string(value));
+			TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("stats_controller");
 			STAT_SET_FLOAT(GET_HASH_KEY(name), value, 1);
 		}
 
 		void StatSetString(const std::string& name, const std::string& value)
 		{
+			addlog(ige::LogType::LOG_TRACE, "Setting Stat " + name + " to " + value);
+			TERMINATE_ALL_SCRIPTS_WITH_THIS_NAME("stats_controller");
 			STAT_SET_STRING(GET_HASH_KEY(name), value.c_str(), 1);
 		}
 
@@ -125,6 +133,7 @@ namespace sub
 				bool statValue = StatGetBool(statName);
 				AddTickol(stat.caption, statValue, bStatValue_input, bStatValue_input, TICKOL::BOXTICK, TICKOL::BOXBLANK); if (bStatValue_input)
 				{
+					addlog(ige::LogType::LOG_DEBUG, "Toggling Stat " + stat.caption + " from " + std::string(statValue ? "true" : "false") + " to " + std::string(!statValue ? "true" : "false"));
 					statValue = !statValue;
 					StatSetBool(statName, statValue);
 				}
@@ -133,15 +142,18 @@ namespace sub
 			case StatDataType_t::INT:
 			{
 				int statValue = StatGetInt(statName);
-				AddNumber(stat.caption, statValue, 0, bStatValue_input, bStatValue_plus, bStatValue_minus); if (bStatValue_input)
+				AddNumber(stat.caption, statValue, 0, bStatValue_input, bStatValue_plus, bStatValue_minus); 
+				if (bStatValue_input)
 				{
 					std::string inputStr = Game::InputBox(std::string(), (int)std::to_string((int)stat.max).length() + 1, "Enter integer value:", std::to_string(statValue));
 					if (inputStr.length() > 0)
 					{
 						try
 						{
+							addlog(ige::LogType::LOG_DEBUG, "Setting Stat " + stat.caption + " to " + std::to_string(statValue) + " via input");
 							statValue = stoi(inputStr);
 							StatSetInt(statName, statValue);
+							addlog(ige::LogType::LOG_TRACE, "Stat " + stat.caption + " successfully set to " + std::to_string(StatGetInt(statName)) + " via input");
 						}
 						catch (...) 
 						{ 
@@ -154,16 +166,20 @@ namespace sub
 				{ 
 					if (statValue < stat.max) 
 					{ 
-						statValue += 1.0f; 
-						StatSetInt(statName, statValue); 
+						addlog(ige::LogType::LOG_DEBUG, "Increasing Stat " + stat.caption + " from " + std::to_string(statValue) + " to " + std::to_string(statValue + 1) + " via plus button");
+						statValue += 1; 
+						StatSetInt(statName, statValue);
+						addlog(ige::LogType::LOG_TRACE, "Stat " + stat.caption + " successfully set to " + std::to_string(StatGetInt(statName)) + " via plus button");
 					} 
 				}
 				if (bStatValue_minus) 
 				{ 
 					if (statValue > stat.min) 
 					{ 
-						statValue -= 1.0f; 
-						StatSetInt(statName, statValue); 
+						addlog(ige::LogType::LOG_DEBUG, "Decreasing Stat " + stat.caption + " from " + std::to_string(statValue) + " to " + std::to_string(statValue - 1) + " via minus button");
+						statValue -= 1; 
+						StatSetInt(statName, statValue);
+						addlog(ige::LogType::LOG_TRACE, "Stat " + stat.caption + " successfully set to " + std::to_string(StatGetInt(statName)) + " via minus button");
 					} 
 				}
 				break;
@@ -178,6 +194,7 @@ namespace sub
 					{
 						try
 						{
+							addlog(ige::LogType::LOG_DEBUG, "Setting Stat " + stat.caption + " to " + inputStr + " via input");
 							statValue = stof(inputStr);
 							StatSetFloat(statName, statValue);
 						}
@@ -192,6 +209,7 @@ namespace sub
 				{ 
 					if (statValue < stat.max) 
 					{ 
+						addlog(ige::LogType::LOG_DEBUG, "Increasing Stat " + stat.caption + " from " + std::to_string(statValue) + " to " + std::to_string(statValue + 0.05f) + " via plus button");
 						statValue += 0.05f; 
 						StatSetInt(statName, statValue); 
 					} 
@@ -200,6 +218,7 @@ namespace sub
 				{ 
 					if (statValue > stat.min) 
 					{ 
+						addlog(ige::LogType::LOG_DEBUG, "Decreasing Stat " + stat.caption + " from " + std::to_string(statValue) + " to " + std::to_string(statValue - 0.05f) + " via minus button");
 						statValue -= 0.05f; 
 						StatSetInt(statName, statValue); 
 					} 
@@ -216,7 +235,7 @@ namespace sub
 			for (auto& charName : charNames)
 			{
 				bool bGoToCharacterPressed = false;
-				AddOption(charName.second, bGoToCharacterPressed, nullFunc, nullFunc); if (bGoToCharacterPressed) // When working again. replace 2nd nullFunc with SUB::SPSTATMANAGER_INCHAR
+				AddOption(charName.second, bGoToCharacterPressed, nullFunc, SUB::SPSTATMANAGER_INCHAR); if (bGoToCharacterPressed) // When working again. replace 2nd nullFunc with 
 				{					
 					Game::Print::PrintBottomCentre("~r~Note:~s~ Player Stats temporarily disabled while not working. Check future updates.");
 					selectedCharName = &charName;

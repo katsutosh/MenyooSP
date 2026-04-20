@@ -1346,7 +1346,7 @@ void AddBreak(std::string text)
 	}
 
 }
-void AddNumber(const std::string& text, float value, __int8 decimal_places, bool& A_PRESS, bool& RIGHT_PRESS, bool& LEFT_PRESS, bool gxt)
+void AddNumber(const std::string& text, double value, __int8 decimal_places, bool& A_PRESS, bool& RIGHT_PRESS, bool& LEFT_PRESS, bool gxt)
 {
 	null = 0;
 	AddOption(text, null, nullFunc, -1, false, gxt);
