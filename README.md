@@ -1,5 +1,5 @@
 [![GitHub Current Version)](https://img.shields.io/github/v/release/itsjustcurtis/MenyooSP?label=Release%20Version&logo=GitHub)](https://github.com/itsjustcurtis/MenyooSP/releases/latest/download/MenyooSP.zip)
-[![GitHub latest release](https://img.shields.io/github/downloads/itsjustcurtis/MenyooSP/latest/total?label=Latest%20Downloads&logo=GitHub)](https://github.com/itsjustcurtis/MenyooSP/releases/latest)
+[![GitHub all releases](https://img.shields.io/github/downloads/itsjustcurtis/MenyooSP/total?label=Total%20Downloads&logo=GitHub)](https://github.com/itsjustcurtis/MenyooSP/releases)
 
 <img width="1280" height="720" alt="banner_FINALB" src="https://github.com/user-attachments/assets/6ce3c340-a0a3-4f47-90a7-37e1f4d674f3" />
 
