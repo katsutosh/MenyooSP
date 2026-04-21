@@ -1,13 +1,11 @@
 [![GitHub Current Version)](https://img.shields.io/github/v/release/itsjustcurtis/MenyooSP?label=Release%20Version&logo=GitHub)](https://github.com/itsjustcurtis/MenyooSP/releases/latest/download/MenyooSP.zip)
-[![GitHub Latest nightly)](https://img.shields.io/github/v/release/itsjustcurtis/MenyooSP?include_prereleases&label=Pre-release%20Version&logo=GitHub)](https://github.com/itsjustcurtis/MenyooSP/releases/)
 [![GitHub latest release](https://img.shields.io/github/downloads/itsjustcurtis/MenyooSP/latest/total?label=Latest%20Downloads&logo=GitHub)](https://github.com/itsjustcurtis/MenyooSP/releases/latest)
-[![GitHub all releases](https://img.shields.io/github/downloads/itsjustcurtis/MenyooSP/total?label=Total%20Downloads&logo=GitHub)](https://github.com/itsjustcurtis/MenyooSP/releases)
 
 <img width="1280" height="720" alt="banner_FINALB" src="https://github.com/user-attachments/assets/6ce3c340-a0a3-4f47-90a7-37e1f4d674f3" />
 
 
 # Menyoo PC - [DOWNLOAD LATEST RELEASE](https://github.com/itsjustcurtis/MenyooSP/releases/latest/download/MenyooSP.zip)
-# Menyoo PC - [DOWNLOAD LATEST NIGHTLY](https://github.com/itsjustcurtis/MenyooSP/releases/)
+# Menyoo PC - [DOWNLOAD LATEST PRE-RELEASE](https://www.patreon.com/c/ItsJustCurtis)
 ### a.k.a. MenyooSP
 #### Trainer for Grand Theft Auto V (Single-player and FiveM).
 ---
@@ -15,6 +13,7 @@
 ## Community
 
 - [Discord](https://discord.gg/v29AwqAemT)
+- [Patreon](https://www.patreon.com/c/ItsJustCurtis)
 
 ## Requirements
 - [OpenIV and its ASI Loader](https://openiv.com/)
